@@ -230,8 +230,8 @@ function animate() {
   })
 }
 
-window.addEventListener('click', (e) => {
-  const angle = Math.atan2(e.clientY - y, e.clientX - x)
+canvas.addEventListener('click', (e) => {
+  const angle = Math.atan2(e.offsetY - y, e.offsetX - x)
   const velocity = { x: Math.cos(angle) * 5, y: Math.sin(angle) * 5 }
   projectiles.push(new Projectile(x, y, 5, 'white', velocity))
 })
@@ -242,10 +242,3 @@ startGameBtn.addEventListener('click', () => {
   spawnEnemies()
   modalEl.style.display = 'none'
 })
-
-/*
-@todo
-1. start btn click starts 1st projectile
-2. add bg music
-3. add explosion music
-*/
